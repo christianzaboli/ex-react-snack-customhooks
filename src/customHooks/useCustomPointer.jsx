@@ -10,11 +10,23 @@ export default function useCustomPointer(hover) {
       });
     }
 
-    window.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-  return;
+  return (
+    <div
+      style={{
+        position: "fixed",
+        top: position.y,
+        left: position.x,
+        transform: "translate(-50%, -50%)",
+        cursor: "none",
+      }}
+    >
+      {hover}
+    </div>
+  );
 }

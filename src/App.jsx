@@ -7,7 +7,7 @@ import useKeyPress from "./customHooks/useKeyPress";
 function App() {
   const [isOn, toggle] = useSwitch();
   const currentDate = useDate();
-  const position = useCustomPointer("❤️");
+  const customPointer = useCustomPointer("❤️");
   const isEnterPressed = useKeyPress("enter");
   return (
     <>
@@ -30,7 +30,7 @@ function App() {
           <em>SNACK 3 useCustomPointer</em>
         </h1>
         <h2>Posizione del mouse:</h2>
-        <p>{position}</p>
+        {customPointer}
       </div>
       <div>
         <h1>
