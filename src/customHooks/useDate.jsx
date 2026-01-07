@@ -6,7 +6,10 @@ export default function useDate() {
   }, 1000);
   useEffect(() => {
     myInterval;
-    return clearInterval(myInterval);
+
+    return () => {
+      clearInterval(myInterval);
+    };
   }, []);
 
   return [currentDate];
